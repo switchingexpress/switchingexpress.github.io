@@ -1,0 +1,213 @@
+/* 各アプリの紹介ページ（共通の骨組み）。色は body.app--<key> の変数だけで変える。
+   元: 宣伝/app-sites/lp.css（build.py が各リポジトリへ写す） */
+:root { color-scheme: light; }
+body.app--chanbara   { --bg:#F8F0E0; --bg2:#EEDDBD; --ink:#1C1612; --muted:#5D5146; --accent:#D8392B; --accent2:#F2B134; --card:#FFFBF2; --line:#1C1612; }
+body.app--suberidase { --bg:#EAF7FD; --bg2:#C9ECFA; --ink:#1D3A52; --muted:#4F6A80; --accent:#1E88D9; --accent2:#FFC83D; --card:#FFFFFF; --line:#1D3A52; }
+body.app--kirikae    { --bg:#EAF8FF; --bg2:#BFE8A6; --ink:#173A2A; --muted:#47604F; --accent:#2E9E46; --accent2:#FFD23F; --card:#FFFFFF; --line:#173A2A; }
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0; background: var(--bg); color: var(--ink); line-height: 1.75;
+  font-family: "Hiragino Sans", "Hiragino Kaku Gothic ProN", system-ui, -apple-system, "Segoe UI", sans-serif;
+  overflow-x: hidden; -webkit-font-smoothing: antialiased;
+}
+img { max-width: 100%; height: auto; display: block; }
+a { color: inherit; }
+a:focus-visible { outline: 4px solid var(--accent2); outline-offset: 3px; border-radius: 10px; }
+.wrap { width: min(1100px, 100% - 32px); margin-inline: auto; }
+h2 { font-size: clamp(28px, 4.4vw, 46px); font-weight: 900; line-height: 1.2; margin: 0 0 10px; letter-spacing: -.01em; }
+.kicker { display: inline-block; font-weight: 900; font-size: 13px; letter-spacing: .2em; color: var(--accent); margin-bottom: 6px; }
+section { padding: clamp(56px, 8vw, 100px) 0; position: relative; }
+
+/* 上の帯 */
+.top {
+  position: absolute; inset: 0 0 auto 0; z-index: 5;
+  display: flex; justify-content: space-between; align-items: center; gap: 10px;
+  padding: 14px clamp(16px, 4vw, 40px); font-weight: 800; font-size: 14px;
+}
+.top a { text-decoration: none; }
+.top nav { display: flex; gap: 8px; }
+.top nav a { border: 2px solid var(--line); border-radius: 999px; padding: 3px 12px; background: var(--card); }
+
+/* ヒーロー */
+.hero {
+  min-height: min(100svh, 920px); display: grid; align-items: center;
+  padding: 84px 0 60px; overflow: hidden; isolation: isolate;
+  background: linear-gradient(175deg, var(--bg) 0%, var(--bg2) 100%);
+  border-bottom: 4px solid var(--line);
+}
+.hero__grid { display: grid; grid-template-columns: 1.1fr .9fr; gap: clamp(20px, 4vw, 56px); align-items: center; }
+.hero__grid > * { min-width: 0; }
+.id { display: flex; gap: 14px; align-items: center; }
+.id img { width: 72px; height: 72px; border-radius: 18px; border: 3px solid var(--line); box-shadow: 0 5px 0 var(--line); flex: none; }
+.id b { display: block; font-size: clamp(19px, 2.4vw, 24px); font-weight: 900; line-height: 1.25; }
+.id span { display: block; color: var(--muted); font-weight: 700; font-size: 14px; }
+.hero h1 {
+  margin: 22px 0 16px; font-size: clamp(38px, 6.4vw, 76px); line-height: 1.12; font-weight: 900; letter-spacing: -.02em;
+}
+.hero h1 em { font-style: normal; color: var(--accent); }
+.hero .lead { margin: 0 0 26px; font-size: clamp(16px, 1.8vw, 18px); font-weight: 600; max-width: 32em; }
+.note { margin: 12px 0 0; font-size: 13px; color: var(--muted); font-weight: 600; }
+
+.store {
+  display: inline-flex; align-items: center; gap: 10px; white-space: nowrap;
+  background: var(--accent2); color: var(--ink); text-decoration: none; font-weight: 900; font-size: 18px;
+  padding: 15px 26px; border-radius: 16px; border: 3px solid var(--line);
+  box-shadow: 0 6px 0 var(--line); transition: transform .12s, box-shadow .12s;
+}
+.store:hover { transform: translateY(3px); box-shadow: 0 3px 0 var(--line); }
+.store:active { transform: translateY(6px); box-shadow: 0 0 0 var(--line); }
+.soon {
+  display: inline-block; font-weight: 900; font-size: 17px; padding: 13px 22px; border-radius: 16px;
+  border: 3px dashed var(--accent); color: var(--accent); background: var(--card);
+}
+
+/* スマホ画面 */
+.phones { position: relative; height: clamp(380px, 52vw, 600px); }
+.phone {
+  position: absolute; width: 52%; max-width: 250px; aspect-ratio: 1206 / 2622;
+  border-radius: 32px; padding: 7px; background: #0B0F14; border: 3px solid var(--line);
+  box-shadow: 10px 14px 0 rgba(0,0,0,.16);
+}
+.phone img { width: 100%; height: 100%; object-fit: cover; border-radius: 24px; }
+.phone--a { left: 6%; top: 4%; transform: rotate(-7deg); z-index: 2; animation: sway 6s ease-in-out infinite; }
+.phone--b { right: 4%; top: 10%; transform: rotate(6deg); animation: sway 6s ease-in-out -3s infinite; }
+
+/* 数字の帯 */
+.stats { background: var(--ink); color: var(--bg); padding: 26px 0; }
+.stats ul { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; text-align: center; }
+.stats b { display: block; font-size: clamp(30px, 5vw, 52px); font-weight: 900; line-height: 1.1; color: var(--accent2); }
+.stats span { font-weight: 700; font-size: 14px; }
+
+/* 特徴 */
+.feats__grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 18px; margin-top: 32px; }
+.feat {
+  background: var(--card); border: 3px solid var(--line); border-radius: 22px; padding: 22px 20px;
+  box-shadow: 0 6px 0 var(--line); transition: transform .2s;
+}
+.feat:hover { transform: translateY(-4px) rotate(-.6deg); }
+.feat .art { width: 68px; height: 68px; object-fit: contain; margin-bottom: 8px; }
+.feat .badge {
+  width: 60px; height: 60px; display: grid; place-items: center; margin-bottom: 10px;
+  background: var(--accent); color: #fff; font-weight: 900; font-size: 30px; border-radius: 14px;
+  border: 3px solid var(--line); transform: rotate(-4deg);
+}
+.feat h3 { margin: 0 0 4px; font-size: 19px; font-weight: 900; line-height: 1.35; }
+.feat p { margin: 0; font-size: 15px; color: var(--muted); font-weight: 600; }
+
+/* 画面ギャラリー（横にすべる） */
+.gallery { background: var(--bg2); border-block: 4px solid var(--line); overflow: hidden; }
+.strip {
+  display: flex; gap: 22px; overflow-x: auto; scroll-snap-type: x mandatory; padding: 26px 16px 20px;
+  margin-top: 10px; scrollbar-width: thin;
+}
+.strip figure { margin: 0; flex: none; width: clamp(170px, 22vw, 230px); scroll-snap-align: center; text-align: center; }
+.strip img { border-radius: 24px; border: 4px solid var(--line); background: #0B0F14; aspect-ratio: 1206 / 2622; object-fit: cover; }
+.strip figcaption { margin-top: 8px; font-weight: 800; font-size: 14px; }
+.hint { font-size: 13px; color: var(--muted); font-weight: 700; margin: 0; }
+
+/* もう一度さそう */
+.again { text-align: center; }
+.again h2 em { font-style: normal; color: var(--accent); }
+.again p { margin: 0 0 26px; font-weight: 600; color: var(--muted); }
+
+/* ほかのゲーム */
+.more { background: #13294B; color: #fff; }
+.more .kicker { color: #FFD84D; }
+.more__grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 16px; margin-top: 26px; }
+.game {
+  display: flex; gap: 14px; align-items: center; padding: 16px; border-radius: 20px; text-decoration: none;
+  background: rgba(255,255,255,.08); border: 2px solid rgba(255,255,255,.2); transition: transform .15s, background .15s;
+}
+a.game:hover { transform: translateY(-3px); background: rgba(255,255,255,.14); }
+.game img { width: 60px; height: 60px; border-radius: 14px; flex: none; }
+.game b { display: block; font-weight: 900; line-height: 1.3; }
+.game span { display: block; font-size: 13px; color: #BFD3EE; font-weight: 600; }
+.game--hub { background: #2F86F0; border-color: #2F86F0; }
+.game--hub span { color: #E6F1FF; }
+
+/* 下 */
+.foot { padding: 46px 0 50px; font-size: 14px; }
+.foot__grid { display: grid; grid-template-columns: 1fr auto; gap: 18px; align-items: end; }
+.foot h2 { font-size: 20px; margin: 0 0 6px; }
+.foot p { margin: 0 0 6px; color: var(--muted); font-weight: 600; }
+.foot a { color: var(--accent); font-weight: 700; }
+.foot .by { text-align: right; }
+.foot .by img { width: 56px; margin: 0 0 4px auto; }
+
+/* ---- アプリごとの飾り ---- */
+.motif { position: absolute; inset: 0; z-index: -1; pointer-events: none; overflow: hidden; }
+/* チャンバラ: 赤い日の丸と、走る斬撃 */
+.app--chanbara .motif::before {
+  content: ""; position: absolute; right: 6%; top: 12%; width: min(46vw, 520px); aspect-ratio: 1; border-radius: 50%;
+  background: radial-gradient(circle at 40% 40%, #E8513F, #C92E22); opacity: .9;
+}
+.app--chanbara .motif i {
+  position: absolute; left: 38%; top: var(--y); width: 90%; height: 6px; background: var(--ink);
+  transform: rotate(var(--r)) scaleX(0); transform-origin: left; animation: slash 4.5s cubic-bezier(.7,0,.2,1) var(--d) infinite;
+  border-radius: 6px; opacity: .85;
+}
+/* すべりだせ: 氷のタイル、すべるペンギン */
+.app--suberidase .motif {
+  background-image:
+    linear-gradient(rgba(255,255,255,.7) 2px, transparent 2px),
+    linear-gradient(90deg, rgba(255,255,255,.7) 2px, transparent 2px);
+  background-size: 64px 64px;
+}
+.app--suberidase .motif .slider { position: absolute; bottom: 4%; left: 0; width: 100%; height: 90px; }
+.app--suberidase .motif .slider img { position: absolute; width: 86px; bottom: 0; }
+.app--suberidase .motif .slider .peng { animation: slide 7s cubic-bezier(.5,0,.6,1) infinite; }
+.app--suberidase .motif .slider .rock { right: 3%; width: 70px; }
+/* 切り替え特急: 縦に流れる線路 */
+.app--kirikae .motif .rail {
+  position: absolute; top: -10%; bottom: -10%; width: 78px; left: var(--x); opacity: .55;
+  background:
+    linear-gradient(90deg, transparent 10px, #8A6A4A 10px 16px, transparent 16px 62px, #8A6A4A 62px 68px, transparent 68px),
+    repeating-linear-gradient(180deg, #C89B62 0 10px, transparent 10px 30px);
+  animation: rail 1.2s linear infinite;
+}
+.app--kirikae .motif .item { position: absolute; width: 54px; left: var(--x); top: var(--y); animation: bob 3.5s ease-in-out var(--d) infinite; }
+
+/* 動き */
+@keyframes sway { 0%,100% { translate: 0 0; } 50% { translate: 0 -12px; } }
+@keyframes slash { 0%, 40% { transform: rotate(var(--r)) scaleX(0); opacity: .85; } 55% { transform: rotate(var(--r)) scaleX(1); opacity: .85; } 75%, 100% { transform: rotate(var(--r)) scaleX(1); opacity: 0; } }
+@keyframes slide { 0% { left: -100px; } 55% { left: calc(97% - 160px); } 60%, 100% { left: calc(97% - 160px); } }
+@keyframes rail { to { background-position: 0 0, 0 30px; } }
+@keyframes bob { 0%,100% { transform: translateY(0) rotate(-6deg); } 50% { transform: translateY(-14px) rotate(6deg); } }
+
+@supports (animation-timeline: view()) {
+  .feat, .strip figure, .game { animation: rise linear both; animation-timeline: view(); animation-range: entry 0% entry 60%; }
+  @keyframes rise { from { transform: translateY(36px); } to { transform: none; } }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+  .app--chanbara .motif i { transform: rotate(var(--r)) scaleX(1); opacity: .5; }
+  html { scroll-behavior: auto; }
+}
+
+/* スマホ */
+@media (max-width: 760px) {
+  .hero { min-height: auto; padding-top: 70px; }
+  .hero__grid { grid-template-columns: 1fr; }
+  .phones { height: 400px; max-width: 360px; width: 100%; margin: 0 auto; }
+  .phone { max-width: 175px; }
+  .stats ul { gap: 6px; }
+  .stats b { font-size: 30px; }
+  .stats span { font-size: 12px; display: block; line-height: 1.4; }
+  .app--chanbara .motif::before { top: auto; bottom: 4%; right: -14%; width: 86vw; }
+  .app--chanbara .motif i { left: 0; width: 120%; top: calc(48% + var(--y) * .5); }
+  .foot__grid { grid-template-columns: 1fr; }
+  .foot .by { text-align: left; }
+  .foot .by img { margin-left: 0; }
+  .app--suberidase .motif .slider { display: none; }
+  .app--kirikae .motif .item { display: none; }
+  .app--kirikae .motif .rail { opacity: .22; }
+  .app--kirikae .motif .rail:first-child { left: auto; right: -20px; }
+  .app--kirikae .motif .rail:nth-child(2) { display: none; }
+}
+@media (max-width: 360px) {
+  .id img { width: 56px; height: 56px; border-radius: 14px; }
+  .store { white-space: normal; font-size: 16px; padding: 12px 16px; }
+  .top nav a { padding: 2px 9px; font-size: 12px; }
+}

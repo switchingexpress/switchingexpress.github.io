@@ -3,35 +3,92 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>切り替え特急</title>
-<meta name="description" content="フリックで線路の分岐を切り替えて、電車を走らせ続ける iPhone アプリ。">
-<link rel="stylesheet" href="style.css">
+<title>切り替え特急 ｜ 分岐を切り替えて走る電車ゲーム</title>
+<meta name="description" content="線路の先には行き止まりや岩。分岐の前でフリックして、進む道を切り替えよう。ぶつかったら脱線。どこまで走れるかな？">
+<meta name="theme-color" content="#EAF8FF">
+<link rel="icon" href="lp/icon.png">
+<link rel="apple-touch-icon" href="lp/icon.png">
+<link rel="alternate" hreflang="ja" href="https://switchingexpress.github.io/">
+<link rel="alternate" hreflang="en" href="https://switchingexpress.github.io/en/">
+<link rel="alternate" hreflang="x-default" href="https://switchingexpress.github.io/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="切り替え特急">
+<meta property="og:url" content="https://switchingexpress.github.io/">
+<meta property="og:title" content="切り替え特急">
+<meta property="og:description" content="線路の先には行き止まりや岩。分岐の前でフリックして、進む道を切り替えよう。ぶつかったら脱線。どこまで走れるかな？">
+<meta property="og:image" content="https://switchingexpress.github.io/lp/ogp.png">
+<meta property="og:image:alt" content="切り替え特急">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@11amawip">
+<link rel="stylesheet" href="lp.css">
 </head>
-<body>
-<main>
-<div class="card">
-  <div class="hero">
-    <img src="icon.png" alt="切り替え特急のアイコン">
-    <h1>切り替え特急</h1>
-    <p class="sub">分岐を切り替えて走り続ける（iPhone アプリ）</p>
+<body class="app--kirikae">
+
+<header class="top">
+  <a href="./">切り替え特急</a>
+  <nav><a href="#more">ほかのゲーム</a><a href="en/" hreflang="en" lang="en">EN</a></nav>
+</header>
+
+<section class="hero">
+  <div class="motif" aria-hidden="true"><span class="rail" style="--x:58%"></span><span class="rail" style="--x:80%"></span><img class="item" src="lp/coin.png" alt="" style="--x:52%;--y:18%;--d:0s"><img class="item" src="lp/item_magnet.png" alt="" style="--x:90%;--y:30%;--d:0.8s"><img class="item" src="lp/coin.png" alt="" style="--x:70%;--y:70%;--d:1.6s"><img class="item" src="lp/item_star.png" alt="" style="--x:46%;--y:82%;--d:2.2s"></div>
+  <div class="wrap hero__grid">
+    <div>
+      <div class="id"><img src="lp/icon.png" alt="" width="256" height="256"><div><b>切り替え特急</b><span>分岐を切り替えて走る電車ゲーム</span></div></div>
+      <h1>分岐を<br>切り替えて、<br><em>どこまでも。</em></h1>
+      <p class="lead">線路の先には行き止まりや岩。分岐の前でフリックして、進む道を切り替えよう。ぶつかったら脱線。どこまで走れるかな？</p>
+      <span class="soon">もうすぐ配信（審査中）</span>
+      <p class="note">iPhone・無料（広告あり）</p>
+    </div>
+    <div class="phones">
+      <div class="phone phone--a"><img src="lp/2-play.jpg" alt="" width="540" height="1174"></div>
+      <div class="phone phone--b"><img src="lp/6-space.jpg" alt="" width="540" height="1174"></div>
+    </div>
   </div>
-  <p>前から迫る線路の分岐を、フリックで左・右・まっすぐに切り替えて、電車を走らせ続けるゲームです。岩や行き止まりをよけながら、コインを集めて、どこまで遠くへ行けるかに挑みます。</p>
-  <ul>
-    <li>1000m ごとに景色が変わり、昼・夕方・夜をこえて、最後は宇宙へ</li>
-    <li>機関車8種類と、効果のある荷物を積む貨車</li>
-    <li>磁石・無敵・自動運転などのアイテム</li>
-    <li>ミッションと、記録のシェア</li>
-  </ul>
-  <h2>サポート</h2>
-  <p>不具合のご報告やご質問は、次の連絡先までお願いします。</p>
-  <ul>
-    <li><a href="mailto:penguinnonawabari@gmail.com">penguinnonawabari@gmail.com</a></li>
-  </ul>
-  <h2>ポリシー</h2>
-  <ul>
-    <li><a href="privacy-policy.html">プライバシーポリシー</a>（<a href="en/privacy-policy.html">English</a>）</li>
-  </ul>
-</div>
-</main>
+</section>
+
+<div class="stats" aria-label="数字で見る"><ul class="wrap"><li><b>8</b><span>機関車</span></li><li><b>9</b><span>つの景色</span></li><li><b>1000m</b><span>ごとに次の景色へ</span></li></ul></div>
+
+<section class="feats">
+  <div class="wrap">
+    <span class="kicker">HOW TO PLAY</span>
+    <h2>走るほど、景色が変わる。</h2>
+    <div class="feats__grid"><article class="feat"><img class="art" src="lp/item_magnet.png" alt="" width="68" height="68"><h3>磁石</h3><p>まわりの線路のコインを吸い寄せる。</p></article><article class="feat"><img class="art" src="lp/item_star.png" alt="" width="68" height="68"><h3>無敵</h3><p>岩をこわして進める。</p></article><article class="feat"><img class="art" src="lp/item_auto.png" alt="" width="68" height="68"><h3>自動運転</h3><p>しばらく勝手に切り替えてくれる。</p></article><article class="feat"><img class="art" src="lp/coin.png" alt="" width="68" height="68"><h3>集めて育てる</h3><p>機関車8種と、荷物を積んで強くなる貨車。ミッションでもコインがもらえる。コインはお金では買えません。</p></article></div>
+  </div>
+</section>
+
+<section class="gallery">
+  <div class="wrap"><span class="kicker">SCREENS</span><h2>画面を見る</h2><p class="hint">← 横にすべらせて見られます →</p></div>
+  <div class="strip"><figure><img src="lp/1-home.jpg" alt="ホーム" loading="lazy" width="540" height="1174"><figcaption>ホーム</figcaption></figure><figure><img src="lp/2-play.jpg" alt="草原" loading="lazy" width="540" height="1174"><figcaption>草原</figcaption></figure><figure><img src="lp/3-beach.jpg" alt="海辺" loading="lazy" width="540" height="1174"><figcaption>海辺</figcaption></figure><figure><img src="lp/4-desert.jpg" alt="砂漠" loading="lazy" width="540" height="1174"><figcaption>砂漠</figcaption></figure><figure><img src="lp/5-night.jpg" alt="夜の街" loading="lazy" width="540" height="1174"><figcaption>夜の街</figcaption></figure><figure><img src="lp/6-space.jpg" alt="宇宙" loading="lazy" width="540" height="1174"><figcaption>宇宙</figcaption></figure><figure><img src="lp/7-shop.jpg" alt="機関車" loading="lazy" width="540" height="1174"><figcaption>機関車</figcaption></figure></div>
+</section>
+
+<section class="again">
+  <div class="wrap">
+    <h2>さあ、<em>出発進行！</em></h2>
+    <p>草原から桜、海辺、砂漠、雪、夜の街をこえて、最後は宇宙へ。</p>
+    <span class="soon">もうすぐ配信（審査中）</span>
+  </div>
+</section>
+
+<section class="more" id="more">
+  <div class="wrap">
+    <span class="kicker">MORE GAMES</span>
+    <h2>同じ作者のゲーム</h2>
+    <p>どれも無料。遊び比べてみてください。</p>
+    <div class="more__grid"><a class="game" href="https://apps.apple.com/app/id6834334474" rel="noopener"><img src="lp/game-nawabari.png" alt="" width="120" height="120" loading="lazy"><div><b>ペンギンのなわばり</b><span>六角マスの推理パズル</span></div></a><a class="game" href="https://apps.apple.com/app/id6836212165" rel="noopener"><img src="lp/game-suberidase.png" alt="" width="120" height="120" loading="lazy"><div><b>すべりだせ！ペンギン</b><span>氷をすべる脱出パズル</span></div></a><a class="game" href="https://apps.apple.com/app/id6836707082" rel="noopener"><img src="lp/game-chanbara.png" alt="" width="120" height="120" loading="lazy"><div><b>フリックチャンバラ</b><span>フリックで斬るチャンバラ</span></div></a><a class="game game--hub" href="https://11amawip.github.io/"><img src="lp/avatar.png" alt="" width="120" height="120" loading="lazy"><div><b>ぜんぶ見る →</b><span>開発中のりゃまさんのページへ</span></div></a></div>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="wrap foot__grid">
+    <div>
+      <h2>お問い合わせ</h2>
+      <p>不具合のご報告やご質問は <a href="mailto:penguinnonawabari@gmail.com">penguinnonawabari@gmail.com</a> までお願いします。</p>
+      <p><a href="privacy-policy.html">プライバシーポリシー</a>（<a href="en/privacy-policy.html" lang="en">English</a>）</p>
+    </div>
+    <a class="by" href="https://11amawip.github.io/"><img src="lp/avatar.png" alt="" width="120" height="120" loading="lazy"><p>つくった人: 開発中のりゃまさん</p></a>
+  </div>
+  <div class="wrap"><p class="note">© 2026 切り替え特急</p></div>
+</footer>
+
 </body>
 </html>
