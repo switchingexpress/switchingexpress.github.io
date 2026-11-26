@@ -3,6 +3,7 @@
 :root { color-scheme: light; }
 body.app--chanbara   { --bg:#F8F0E0; --bg2:#EEDDBD; --ink:#1C1612; --muted:#5D5146; --accent:#D8392B; --accent2:#F2B134; --card:#FFFBF2; --line:#1C1612; }
 body.app--suberidase { --bg:#EAF7FD; --bg2:#C9ECFA; --ink:#1D3A52; --muted:#4F6A80; --accent:#1E88D9; --accent2:#FFC83D; --card:#FFFFFF; --line:#1D3A52; }
+body.app--honey     { --bg:#FFF6DC; --bg2:#FFE3A0; --ink:#242F5C; --muted:#5B6185; --accent:#D97F00; --accent2:#F4A814; --card:#FFFFFF; --line:#242F5C; }
 body.app--kirikae    { --bg:#EAF8FF; --bg2:#BFE8A6; --ink:#173A2A; --muted:#47604F; --accent:#2E9E46; --accent2:#FFD23F; --card:#FFFFFF; --line:#173A2A; }
 
 * { box-sizing: border-box; }
@@ -168,6 +169,19 @@ a.game:hover { transform: translateY(-3px); background: rgba(255,255,255,.14); }
   animation: rail 1.2s linear infinite;
 }
 .app--kirikae .motif .item { position: absolute; width: 54px; left: var(--x); top: var(--y); animation: bob 3.5s ease-in-out var(--d) infinite; }
+/* みつわけハニカム: ふわふわ浮かぶ六角と、上から垂れる蜜 */
+.app--honey .motif .hex {
+  position: absolute; left: var(--x); top: var(--y); width: var(--s); aspect-ratio: 1 / 1.1547;
+  background: var(--accent2); border: 0; opacity: .5;
+  clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
+  animation: bob 4s ease-in-out var(--d) infinite;
+}
+.app--honey .motif .drip {
+  position: absolute; left: var(--x); top: 0; width: 26px; height: 120px; opacity: .55;
+  background: var(--accent2); border-radius: 0 0 13px 13px; transform-origin: top;
+  animation: drip 4.5s ease-in-out infinite;
+}
+@keyframes drip { 0%,100% { transform: scaleY(.6); } 50% { transform: scaleY(1.15); } }
 
 /* 動き */
 @keyframes sway { 0%,100% { translate: 0 0; } 50% { translate: 0 -12px; } }
@@ -202,6 +216,8 @@ a.game:hover { transform: translateY(-3px); background: rgba(255,255,255,.14); }
   .foot .by img { margin-left: 0; }
   .app--suberidase .motif .slider { display: none; }
   .app--kirikae .motif .item { display: none; }
+  .app--honey .motif .hex { opacity: .28; }
+  .app--honey .motif .drip { display: none; }
   .app--kirikae .motif .rail { opacity: .22; }
   .app--kirikae .motif .rail:first-child { left: auto; right: -20px; }
   .app--kirikae .motif .rail:nth-child(2) { display: none; }
